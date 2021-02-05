@@ -99,10 +99,19 @@ Zunächst wurden basierend auf dem Systemmodell ein linearer LQR-Entwurf für al
     
 \medskip
     
-Zwischen den Ruhelagen können offline Übergänge berechnet werden. Dabei werden unter Nutzung des Systemmodells durch Optimierung Vorsteuerung und Rückführung ermittelt. Ist kein direkter Übergang möglich, werden mehrere funktionierende Übergänge verkettet um das Ziel zu erreichen; auf Wunsch auch automatisch. So ist reproduzierbar jede Ruhelage als Startpunkt für die Evaluation von Regelungsalgorithmen möglich.
+Zwischen den Ruhelagen können offline Übergänge berechnet werden. Dabei werden unter Nutzung des Systemmodells durch Optimierung Vorsteuerung und Rückführung ermittelt.
+Eine derartig ermittelte Überführung ist in Abbildung~\ref{fig:uoo_ooo} dargestellt.
+Ist kein direkter Übergang möglich, werden mehrere funktionierende Übergänge verkettet um das Ziel zu erreichen; auf Wunsch auch automatisch. So ist reproduzierbar jede Ruhelage als Startpunkt für die Evaluation von Regelungsalgorithmen möglich.
 
 \medskip
 Bestärkendes Lernen wurde bisher in zwei Szenarien erfolgreich getestet: dem seitlichen Versetzen des Dreifachpendels in unterer Position und dem Aufschwingen des Einfachpendels\footnote{Als Alternative zum den in \figref{fig_hw_sw} gezeigten drei Pendelarmen kann ein ca. 1m langes Einfachpendel montiert montiert werden}. Sämtliche Trainingsdaten stammen aus Experimenten am Versuchsstand; um die große Menge an Messdaten aufzunehmen musste die Durchführung möglichst komfortabel werden. Eine Trainingsepisode besteht aus dem Generieren einer Trajektorie, dem Ausführen derselben auf dem Versuchsstand, dem Extrahieren relevanter Messdaten und dem Training des gelernten Modells mit dem neuen Wissen. Diese Iteration wurde inzwischen voll automatisiert, sodass im besten Fall ein Mitarbeiter nur im Notfall eingreifen muss.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.7]{img/uoo_ooo_3.0_around.csv.pdf}
+    \caption{Aufschwingen von der Ruhelage „\texttt{UOO}“ nach „\texttt{OOO}“.}
+    \label{fig:uoo_ooo}
+\end{figure}
     
 
 \subsection{Ausblick}
